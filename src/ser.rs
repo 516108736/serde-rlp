@@ -30,7 +30,7 @@ pub struct Serializer {
 // This basic serializer supports only `to_bytes`.
 pub fn to_bytes<T>(value: &T) -> Result<Vec<u8>>
 where
-    T: Serialize,
+    T: Serialize + ?Sized,
 {
     let mut serializer = Serializer {
         output: Vec::new(),
